@@ -67,4 +67,3 @@ maxiter = 100
 root = secant(equation, x0, x1, tol, maxiter)
 
 
-
