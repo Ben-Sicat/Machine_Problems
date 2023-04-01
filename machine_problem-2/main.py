@@ -4,11 +4,12 @@ class Calculator:
     def __init__(self, equation) -> None:
         self.equation = equation
     
-    def bisection(equation, a, b, tol=1e-6, maxiter=100):
-    
+    def bisection(self, a, b, tol=1e-6, maxiter=100):
+        
 
         # Convert the equation string to a lambda function that can be evaluated.
-        equation = re.sub(r"(\d)x", r"\1*x", equation)
+        equation = re.sub(r"(\d)x", r"\1*x", self.equation)
+        equation = equation.replace("^", "**")
         equation = eval("lambda x: " + equation)
 
         # Check if the interval [a, b] contains a root.
@@ -28,20 +29,21 @@ class Calculator:
         return None
 
     # Example usage:
-    equation_str = input("Enter a mathematical equation in x: ")
-    a = float(input("Enter the lower bound of the interval: "))
-    b = float(input("Enter the upper bound of the interval: "))
+    # equation_str = input("Enter a mathematical equation in x: ")
+    # a = float(input("Enter the lower bound of the interval: "))
+    # b = float(input("Enter the upper bound of the interval: "))
 
-    root = bisection(equation_str, a, b)
-    if root is None:
-        print("No root was found within the maximum number of iterations.")
-    else:
-        print(f"A root of the equation is: {root}")
+    # root = bisection(equation_str, a, b)
+    # if root is None:
+    #     print("No root was found within the maximum number of iterations.")
+    # else:
+    #     print(f"A root of the equation is: {root}")
 
 
-    def secant(equation, x0, x1, tol=1e-6, maxiter=100):
+    def secant(self, x0, x1, tol=1e-6, maxiter=100):
         # Convert the equation string to a lambda function that can be evaluated.
-        equation = re.sub(r"(\d)x", r"\1*x", equation)
+        equation = re.sub(r"(\d)x", r"\1*x", self.equation)
+        equation = equation.replace("^", "**")
         equation = eval("lambda x: " + equation)
 
         # Perform the secant method until the root is found or the maximum number of iterations is reached.
@@ -61,12 +63,12 @@ class Calculator:
         print("Reached the maximum number of iterations.")
         return None
     # Example usage of secant function
-    equation = "x**3 - x - 1 "
-    x0 = 1
-    x1 = 2
-    tol = 1e-6
-    maxiter = 100
+        # equation = "x**3 - x - 1 "
+        # x0 = 1
+        # x1 = 2
+        # tol = 1e-6
+        # maxiter = 100
 
-    root = secant(equation, x0, x1, tol, maxiter)
+        # root = secant(equation, x0, x1, tol, maxiter)
 
 
