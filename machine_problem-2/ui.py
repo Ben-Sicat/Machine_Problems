@@ -24,12 +24,16 @@ def clear_field():
     global equation
     equation = ""
     text_result.delete("1.0", tk.END)
+    
+def button(label):
+    tk.Button(root, text=label, command=lambda: add_to_calculation(label), width = 10, font="Times 24")
 
 root = tk.Tk()
 root.geometry("500x480")
 
 text_result = tk.Text(root, height=2, width=30, font =("Times New Roman", 24) )
 text_result.grid(columnspan=5)
+button("1").grid(row=2, column=1)
 
 
 
