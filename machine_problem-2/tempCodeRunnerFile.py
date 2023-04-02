@@ -1,10 +1,9 @@
-button("1").grid(row=2, column=1)
-# button("2").grid(row=2, column=2)
-# button("3").grid(row=2, column=3)
-# button("4").grid(row=3, column=1)
-# button("5").grid(row=3, column=2)
-# button("6").grid(row=3, column=3)
-# button("7").grid(row=4, column=1)
-# button("8").grid(row=4, column=2)
-# button("9").grid(row=4, column=3)
-# button("0").grid(row=5, column=1)
+equation_str = input("Enter a mathematical equation in x: ")
+    a = float(input("Enter the lower bound of the interval: "))
+    b = float(input("Enter the upper bound of the interval: "))
+
+    root = bisection(equation_str, a, b)
+    if root is None:
+        print("No root was found within the maximum number of iterations.")
+    else:
+        print(f"A root of the equation is: {root}")
