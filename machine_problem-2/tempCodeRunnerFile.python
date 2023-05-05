@@ -1,1 +1,0 @@
-lb2 = tk.Listbox(root,width=80, height=50)
